@@ -1,10 +1,10 @@
 #Script to move all packages to newest version's libPath and then update
 
-#do a brew update 
+#do a brew update, if you have Homebrew installed
 system('brew update && brew upgrade')
 
 #Find all the current and past library paths
-vrs_pth<-file.path('','Library', 'Frameworks', 'R.framework', 'Versions') 
+vrs_pth<-file.path('','Library', 'Frameworks', 'R.framework', 'Versions') #these are default mac paths R, you may need to change
 versions<-dir(vrs_pth)[!dir(vrs_pth)=='Current']
 o<-order(as.numeric(versions))
 cur<-versions[max(o)]
@@ -24,4 +24,4 @@ sapply(old, function(oldnumber){
 #update packages
 update.packages(ask=FALSE, type='source')
 
-#eventually should make this a scheduled job
+#to do: use cronR to make this a scheduled job...
