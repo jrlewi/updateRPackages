@@ -24,4 +24,4 @@ sapply(old, function(oldnumber){
 #update packages
 update.packages(ask=FALSE, type='source')
 
-#to do: use cronR to make this a scheduled job...
+
