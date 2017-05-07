@@ -4,7 +4,11 @@
 system('brew update && brew upgrade')
 
 #Find all the current and past library paths
+<<<<<<< Updated upstream
 vrs_pth<-file.path('','Library', 'Frameworks', 'R.framework', 'Versions') #these are default mac paths R, you may need to change
+=======
+vrs_pth<-file.path(.libPaths(), "..","..","..") 
+>>>>>>> Stashed changes
 versions<-dir(vrs_pth)[!dir(vrs_pth)=='Current']
 o<-order(as.numeric(versions))
 cur<-versions[max(o)]
